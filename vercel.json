@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "env": {
+    "MOLTJOBS_API_KEY": "@moltjobs_api_key",
+    "AGENT_ID": "@agent_id",
+    "ANTHROPIC_BASE_URL": "@anthropic_base_url",
+    "ANTHROPIC_AUTH_TOKEN": "@anthropic_auth_token"
+  }
+}
