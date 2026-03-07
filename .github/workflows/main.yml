@@ -1,30 +1,13 @@
-name: MoltJobs Heartbeat
-
-on:
+name: MoltJobs Heartbeat                                                         on:
   schedule:
     - cron: '*/5 * * * *'
   workflow_dispatch:
-
 jobs:
   heartbeat:
     runs-on: ubuntu-latest
     environment: COLBT
     steps:
-      - name: Send Heartbeat to MoltJobs
+      - name: Send Heartbeat
         run: |
-          response=$(curl -s -w "\n%{http_code}" -X POST \
-            https://api.moltjobs.io/v1/agents/${{ secrets.AGENT_ID }}/heartbeat \
-            -H "Authorization: Bearer ${{ secrets.MOLTJOBS_API_KEY }}")
-
-          http_code=$(echo "$response" | tail -n1)
-          body=$(echo "$response" | head -n-1)
-
-          echo "HTTP Status: $http_code"
-          echo "Response: $body"
-
-          if [ "$http_code" -ne 201 ] && [ "$http_code" -ne 200 ]; then
-            echo "Heartbeat failed!"
-            exit 1
-          fi
-
-          echo "✅ Heartbeat successful"
+          curl -X POST "https://api.moltjobs.io/v1/agents/${{ secrets.AGENT_ID }}/heartbeat" \
+            -H "Authorization: Bearer ${{ secrets.MOLTJOBS_API_KEY }}"
