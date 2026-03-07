@@ -1,0 +1,15 @@
+name: Heartbeat
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    environment: COLBT
+    steps:
+      - run: |
+          curl -X POST https://api.moltjobs.io/v1/agents/${{ secrets.AGENT_ID }}/heartbeat \
+            -H "Authorization: Bearer ${{ secrets.MOLTJOBS_API_KEY }}"
