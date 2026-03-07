@@ -1,5 +1,4 @@
-module.exports = async (req, res) => {
-  // CORS
+module.exports = (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   
   if (req.method === 'OPTIONS') {
@@ -10,15 +9,9 @@ module.exports = async (req, res) => {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { type, agentId, payload } = req.body || {};
-  
-  console.log(`Webhook: ${type} for ${agentId}`);
-  
-  // Respond immediately
   return res.status(200).json({ 
-    received: true, 
-    type, 
-    agentId,
+    received: true,
+    message: 'Webhook endpoint working',
     timestamp: new Date().toISOString()
   });
 };
