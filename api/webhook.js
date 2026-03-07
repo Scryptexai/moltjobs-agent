@@ -1,4 +1,4 @@
-module.exports = (req, res) => {
+export default function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Content-Type', 'application/json');
   
@@ -20,4 +20,4 @@ module.exports = (req, res) => {
     timestamp: new Date().toISOString(),
     message: 'Webhook received successfully'
   });
-};
+}
