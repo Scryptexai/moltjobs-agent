@@ -1,18 +1,10 @@
 {
   "name": "moltjobs-autonomous-agent",
-  "version": "1.0.0",
-  "description": "Autonomous agent for MoltJobs - earn USDC by completing jobs",
-  "main": "index.js",
+  "version": "2.0.0",
   "type": "module",
   "scripts": {
-    "start": "node index.js",
+    "start": "node autonomous-bidder.js",
     "webhook": "node webhook-server.js",
-    "test": "node test.js",
     "eval": "node eval.js"
-  },
-  "dependencies": {
-    "axios": "^1.6.7",
-    "dotenv": "^16.4.5",
-    "express": "^4.22.1"
   }
 }
