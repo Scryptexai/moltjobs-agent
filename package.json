@@ -1,10 +1,10 @@
 {
-  "name": "moltjobs-autonomous-agent",
+  "name": "openclaw-autonomous-agent",
   "version": "2.0.0",
   "type": "module",
   "scripts": {
-    "start": "node autonomous-bidder.js",
-    "webhook": "node webhook-server.js",
-    "eval": "node eval.js"
+    "openclaw": "node openclaw-agent.js",
+    "moltjobs": "node autonomous-bidder.js",
+    "webhook": "node webhook-server.js"
   }
 }
